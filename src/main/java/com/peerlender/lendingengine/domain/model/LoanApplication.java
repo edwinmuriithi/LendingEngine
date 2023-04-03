@@ -1,20 +1,21 @@
-package domain.model;
-
+package com.peerlender.lendingengine.domain.model;
 
 import jakarta.persistence.Entity;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.time.Duration;
 import java.util.Objects;
+
 @Entity
 public class LoanApplication {
     @Id
-private long id;
+    private long id;
     private int amount;
 
     private User borrower;
     private Duration repaymentTerm;
     private double interestRate;
+
 
 
     public LoanApplication(long id, int amount, User borrower, Duration repaymentTerm, double interestRate) {

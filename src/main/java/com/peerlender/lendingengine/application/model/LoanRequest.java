@@ -1,11 +1,11 @@
-package application.model;
-import org.springframework.stereotype.Component;
+package com.peerlender.lendingengine.application.model;
+
+import jakarta.persistence.Entity;
+import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
 public final  class LoanRequest {
-
-    private final long id;
 
     private final int amount;
     private final long borrowerId;
@@ -14,16 +14,11 @@ public final  class LoanRequest {
 
     private final double interestRate;
 
-    public LoanRequest(long id, int amount, long borrowerId, int dayToPay, double interestRate) {
-        this.id = id;
+    public LoanRequest(int amount, long borrowerId, int dayToPay, double interestRate) {
         this.amount = amount;
         this.borrowerId = borrowerId;
         this.dayToPay = dayToPay;
         this.interestRate = interestRate;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public int getAmount() {
@@ -47,20 +42,19 @@ public final  class LoanRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LoanRequest that = (LoanRequest) o;
-        return id == that.id && amount == that.amount && Double.compare(that.interestRate, interestRate) == 0 && Objects.equals(borrowerId, that.borrowerId) && Objects.equals(dayToPay, that.dayToPay);
+        return amount == that.amount && borrowerId == that.borrowerId && dayToPay == that.dayToPay && Double.compare(that.interestRate, interestRate) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount, borrowerId, dayToPay, interestRate);
+        return Objects.hash(amount, borrowerId, dayToPay, interestRate);
     }
 
     @Override
     public String toString() {
         return "LoanRequest{" +
-                "id=" + id +
-                ", amount=" + amount +
-                ", borrowerId='" + borrowerId + '\'' +
+                "amount=" + amount +
+                ", borrowerId=" + borrowerId +
                 ", dayToPay=" + dayToPay +
                 ", interestRate=" + interestRate +
                 '}';

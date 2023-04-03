@@ -1,9 +1,9 @@
-package application;
+package com.peerlender.lendingengine.application;
 
-import application.model.LoanRequest;
-import domain.model.User;
-import domain.repository.LoanRepository;
-import domain.repository.UserRepository;
+import com.peerlender.lendingengine.application.model.LoanRequest;
+import com.peerlender.lendingengine.domain.model.User;
+import com.peerlender.lendingengine.domain.repository.LoanRepository;
+import com.peerlender.lendingengine.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

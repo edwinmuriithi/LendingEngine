@@ -1,16 +1,12 @@
-package domain.model;
-
+package com.peerlender.lendingengine.domain.model;
 import jakarta.persistence.Entity;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
-@Entity
-public class User {
+    @Entity
+    public class User {
     @Id
-    private long id;
-
-
+    private Long id;
     private String firstName;
     private String lastName;
     private int age;
@@ -20,7 +16,7 @@ public class User {
     }
 
     public User(long id, String firstName, String lastName, int age, String occupation) {
-        this.id = id;
+        //this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -28,9 +24,7 @@ public class User {
     }
 
 
-
-    public long getId() {
-        return id;
+    public long getId() {return id;
     }
 
     public String getFirstName() {
